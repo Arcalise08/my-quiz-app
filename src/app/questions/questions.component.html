@@ -1,0 +1,21 @@
+<div *ngIf="quiz && !questions" class="spinner-grow text-primary"></div>
+<div class="quiz container mt-5" *ngIf="questions">
+  <div class="row">
+    <div class="col mx-auto">
+      <div class="questions" *ngIf="!showResults">
+        <app-question-form
+          [question]="questions[currentQuestionIndex]"
+          (onChoiceMade)="updateChoice($event)">
+        </app-question-form>
+
+        <button
+          class="btn btn-success mt-5 col-6 mx-auto d-block"
+          (click)="nextOrViewResults()"
+          [disabled]="!answers.values[currentQuestionIndex]">
+          {{currentQuestionIndex === questions.length - 1 ? 'View Results' : 'Next'}}
+        </button>
+      </div>
+    </div>
+  </div>
+  <app-results *ngIf="showResults" [answers]="answers"></app-results>
+</div>

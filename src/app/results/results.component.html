@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="results mx-auto">
+    <h2 class="text-center mt-5">Results</h2>
+    <p class="text-center">you got {{answers.incorrect.length}} wrong!</p>
+    <div class="row justify-content-center">
+      <div *ngFor="let b of answers.incorrect">
+        <div class="card col" style="width: 18rem; height: 100%">
+          <div class="card-body">
+            <h5 class="card-title" [innerHTML]="b.questionName"></h5>
+            <p class="card-text">You picked:<span style="color: red"> {{b["picked"]}}</span>
+              <br>Correct Answer: <span style="color: green">{{b["correctAnswer"]}}</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="row my-5 btn btn-dark d-block mx-auto" style="width: 40%" routerLink="/welcome">Start Over!</button>
+  </div>
+</div>

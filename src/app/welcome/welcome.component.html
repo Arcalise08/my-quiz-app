@@ -1,0 +1,20 @@
+<div *ngIf="!quizList" class="spinner-grow text-primary"></div>
+<div *ngIf="quizList" class="container">
+  <h1 class="text-center mt-2"> Trivia Time!</h1>
+  <p class="text-center mb-5"> Pick a subject to get started!</p>
+  <div class="row justify-content-center">
+      <div class="col-xs-12 mx-2" *ngFor="let quizItem of quizList">
+        <div class="card mb-2" style="width: 18rem; height: 10rem;">
+          <div class="card-body">
+            <h5 class="card-title">{{quizItem.name}}</h5>
+          </div>
+          <div class="card-footer">
+            <button type="button" routerLink="/{{quizItem.label}}" class="btn btn-dark d-block mx-auto">
+              Start!
+            </button>
+          </div>
+        </div>
+      </div>
+  </div>
+
+</div>

@@ -1,0 +1,11 @@
+<div class="quiz card" *ngIf="question">
+  <h3 class="card-title col p-3 text-center" [innerHTML]="question.label"></h3>
+  <form [formGroup]="form">
+    <div class="form-group list-group">
+      <label class="mx-auto" *ngFor="let choice of question.choices">
+        <input type="radio" [value]="choice" formControlName="choice">
+        <span>{{choice}}</span>
+      </label>
+    </div>
+  </form>
+</div>
