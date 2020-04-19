@@ -8,6 +8,7 @@ import {QuestionsService} from '../questions.service';
 })
 export class WelcomeComponent implements OnInit {
   quizList = [];
+  difficulty = 'Easy';
   constructor(private questionsService: QuestionsService) {
     this.questionsService.getQuizzes().subscribe(r => {
       r.forEach((value, index) => {

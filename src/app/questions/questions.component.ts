@@ -22,7 +22,7 @@ export class QuestionsComponent implements OnInit {
 
   }
   ngOnInit() {
-    this.questionsService.getQuestions(this.route.snapshot.params.quizId).subscribe(questions => {
+    this.questionsService.getQuestions(this.route.snapshot.params.quizId, this.route.snapshot.params.difficultyId).subscribe(questions => {
       this.questions = questions;
       this.answers = new Answers([], []);
       this.currentIncorrect = 0;
@@ -47,7 +47,6 @@ export class QuestionsComponent implements OnInit {
       };
       this.answers.incorrect[this.currentIncorrect] = tempArr;
       this.currentIncorrect++;
-      console.log(this.answers);
     }
 
     if (this.currentQuestionIndex === this.questions.length - 1) {

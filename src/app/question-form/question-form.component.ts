@@ -1,4 +1,4 @@
-import {Component, EventEmitter,Input, Output, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, Output, OnInit} from '@angular/core';
 import { FormControl, FormGroup} from '@angular/forms';
 import { Question } from '../quiz.model';
 
@@ -12,13 +12,17 @@ export class QuestionFormComponent implements OnInit {
   @Input() question: Question;
   @Output() onChoiceMade = new EventEmitter<string>();
   form: FormGroup;
-  ngOnInit() {
 
+  ngOnInit() {
     this.form = new FormGroup({
       choice: new FormControl()
     });
     this.form.valueChanges.subscribe(this.onChange);
   }
+  select(e) {
+    this.form.value.choice = e.target.value;
+  }
+
   onChange = () => {
     if (this.form.value.choice === this.question.correct) {
       this.onChoiceMade.emit(this.form.value.choice + [' correct']);
