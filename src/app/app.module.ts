@@ -12,6 +12,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 
+
 const appRoutes: Routes = [
   {path: 'welcome', component: WelcomeComponent },
   {path: ':quizId/:difficultyId', component: QuestionsComponent },

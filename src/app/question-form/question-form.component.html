@@ -2,7 +2,7 @@
   <h3 class="card-title col p-3 text-center" [innerHTML]="question.label"></h3>
   <form [formGroup]="form">
     <div class="form-group p-3">
-      <select class="form-control custom-select" [value]="null" size="{{question.choices.length}}" formControlName="choice" (change)="select($event)" id="exampleFormControlSelect1">
+      <select class="form-control custom-select"  size="{{question.choices.length}}" formControlName="choice" (change)="select($event)">
         <option *ngFor="let choice of question.choices" [innerHTML]="choice"></option>
       </select>
     </div>
