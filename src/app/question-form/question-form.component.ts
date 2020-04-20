@@ -28,7 +28,6 @@ export class QuestionFormComponent implements OnInit {
 
   onChange = () => {
     const correctDecode = he.decode(this.question.correct);
-
     if (this.form.value.choice === correctDecode) {
       this.onChoiceMade.emit(this.form.value.choice + [' correct']);
     }
